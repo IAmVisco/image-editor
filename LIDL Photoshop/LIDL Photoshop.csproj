@@ -69,6 +69,12 @@
     <Compile Include="ResizeForm.Designer.cs">
       <DependentUpon>ResizeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RotateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RotateForm.Designer.cs">
+      <DependentUpon>RotateForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +89,9 @@
     </Compile>
     <EmbeddedResource Include="ResizeForm.resx">
       <DependentUpon>ResizeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RotateForm.resx">
+      <DependentUpon>RotateForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
