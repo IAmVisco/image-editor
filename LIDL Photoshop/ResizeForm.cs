@@ -30,7 +30,10 @@ namespace LIDL_Photoshop
         private void ProportionLock_CheckedChanged(object sender, EventArgs e)
         {
             isLocked = proportionLock.Checked;
-            coef = (double)(widthField.Value / this.heightField.Value);
+            if (widthField.Value > heightField.Value)
+                coef = (double)(widthField.Value / heightField.Value);
+            else
+                coef = (double)(heightField.Value / widthField.Value);
         }
 
         private void ConfirmBtn_Click(object sender, EventArgs e)

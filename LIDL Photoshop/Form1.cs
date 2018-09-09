@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ImageOperations;
 
 namespace LIDL_Photoshop
 {
@@ -107,6 +108,12 @@ namespace LIDL_Photoshop
                 ImageBox.Image = image.Resize(resizeForm.NewWidth, resizeForm.NewHeight);
                 ResizeWindow(resizeForm.NewWidth, resizeForm.NewHeight);
             }
+        }
+
+        private void ToBlackAndWhiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap image = (Bitmap)ImageBox.Image;
+            ImageBox.Image = image.ToGrayscale();
         }
     }
 }
