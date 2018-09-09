@@ -8,6 +8,9 @@ namespace ImageOperations
 {
     public static class Operations
     {
+        /// <summary>
+        /// Resizes image using provided parameters.
+        /// </summary>
         public static Bitmap Resize(this Image img, int width, int height)
         {
             Bitmap result = new Bitmap(width, height);
@@ -20,6 +23,12 @@ namespace ImageOperations
             }
         }
 
+        /// <summary>
+        /// Rotates image using provided angle.
+        /// </summary>
+        /// <param name="img"></param>
+        /// <param name="angle"></param>
+        /// <returns></returns>
         public static Bitmap Rotate(this Image img, int angle)
         {
             Bitmap result = new Bitmap(img.Width, img.Height);
@@ -34,6 +43,12 @@ namespace ImageOperations
                 return result;
             }
         }
+
+        /// <summary>
+        /// Converts all pixels of Bitmap to grayscale.
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
 
         public static Bitmap ToGrayscale(this Bitmap bitmap)
         {
@@ -58,6 +73,32 @@ namespace ImageOperations
             }
 
             return result;
+        }
+
+        public static Bitmap ChangeAttributes(this Bitmap bitmap, float brightness, float contrast)
+        {
+            //contrast = 1.0f;
+            float adjustedBrightness = brightness - 1.0f;
+            // create matrix that will brighten and contrast the image
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+            {
+                new float[] {contrast, 0, 0, 0, 0},
+                new float[] {0, contrast, 0, 0, 0},
+                new float[] {0, 0, contrast, 0, 0},
+                new float[] {0, 0, 0, 1.0f, 0},
+                new float[] {adjustedBrightness, adjustedBrightness, adjustedBrightness, 0, 1}
+            });
+
+            ImageAttributes imageAttributes = new ImageAttributes();
+            imageAttributes.ClearColorMatrix();
+            imageAttributes.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                g.DrawImage(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                    0, 0, bitmap.Width, bitmap.Height, GraphicsUnit.Pixel, imageAttributes);
+            }
+
+            return bitmap;
         }
     }
 }

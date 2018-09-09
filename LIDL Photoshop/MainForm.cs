@@ -12,9 +12,12 @@ using ImageOperations;
 
 namespace LIDL_Photoshop
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        private AttributesForm attrsForm;
+        Image image;
+
+        public MainForm()
         {
             InitializeComponent();
             ChangeMenuOptions(false);
@@ -22,9 +25,13 @@ namespace LIDL_Photoshop
 
         private void ChangeMenuOptions(bool value)
         {
+            this.saveToolStripMenuItem.Enabled = value;
+
             this.resizeToolStripMenuItem.Enabled = value;
             this.rotateToolStripMenuItem.Enabled = value;
-            this.saveToolStripMenuItem.Enabled = value;
+            this.attributesToolStripMenuItem.Enabled = value;
+
+            this.toGrayscaleToolStripMenuItem.Enabled = value;
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,6 +42,7 @@ namespace LIDL_Photoshop
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ofd.Title = "Select an Image";
+            ofd.FileName = "";
             ofd.Filter = "PNG Files|*.png|JPEG Files|*.jpg|Windows Bitmaps|*.bmp";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -114,6 +122,22 @@ namespace LIDL_Photoshop
         {
             Bitmap image = (Bitmap)ImageBox.Image;
             ImageBox.Image = image.ToGrayscale();
+        }
+
+        private void AttributesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            attrsForm = new AttributesForm(this);
+            image = ImageBox.Image;
+            Image backup = (Image)ImageBox.Image.Clone();
+            if (attrsForm.ShowDialog() == DialogResult.Cancel)
+            {
+                ImageBox.Image = backup;
+            }
+        }
+
+        public void ChangeAttributes()
+        {
+            ImageBox.Image = (image as Bitmap).ChangeAttributes(attrsForm.Brightness, attrsForm.Contrast);
         }
     }
 }

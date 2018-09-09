@@ -1,6 +1,6 @@
 ﻿namespace LIDL_Photoshop
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,14 +36,12 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.attributesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.effectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toBlackAndWhiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toGrayscaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ImageBox = new System.Windows.Forms.PictureBox();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.sfd = new System.Windows.Forms.SaveFileDialog();
-            this.brightnessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contrastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gammaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
             this.SuspendLayout();
@@ -100,9 +98,7 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rotateToolStripMenuItem,
             this.resizeToolStripMenuItem,
-            this.brightnessToolStripMenuItem,
-            this.contrastToolStripMenuItem,
-            this.gammaToolStripMenuItem});
+            this.attributesToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -111,7 +107,7 @@
             // 
             this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
             this.rotateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.rotateToolStripMenuItem.Text = "Rotate...";
             this.rotateToolStripMenuItem.Click += new System.EventHandler(this.RotateToolStripMenuItem_Click);
             // 
@@ -120,27 +116,35 @@
             this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
             this.resizeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.R)));
-            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.resizeToolStripMenuItem.Text = "Resize...";
             this.resizeToolStripMenuItem.Click += new System.EventHandler(this.ResizeToolStripMenuItem_Click);
+            // 
+            // attributesToolStripMenuItem
+            // 
+            this.attributesToolStripMenuItem.Name = "attributesToolStripMenuItem";
+            this.attributesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.attributesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.attributesToolStripMenuItem.Text = "Image Attributes...";
+            this.attributesToolStripMenuItem.Click += new System.EventHandler(this.AttributesToolStripMenuItem_Click);
             // 
             // effectsToolStripMenuItem
             // 
             this.effectsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toBlackAndWhiteToolStripMenuItem});
+            this.toGrayscaleToolStripMenuItem});
             this.effectsToolStripMenuItem.Name = "effectsToolStripMenuItem";
             this.effectsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.effectsToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.effectsToolStripMenuItem.Text = "Effects";
             // 
-            // toBlackAndWhiteToolStripMenuItem
+            // toGrayscaleToolStripMenuItem
             // 
-            this.toBlackAndWhiteToolStripMenuItem.Name = "toBlackAndWhiteToolStripMenuItem";
-            this.toBlackAndWhiteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.toGrayscaleToolStripMenuItem.Name = "toGrayscaleToolStripMenuItem";
+            this.toGrayscaleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.G)));
-            this.toBlackAndWhiteToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.toBlackAndWhiteToolStripMenuItem.Text = "To Grayscale";
-            this.toBlackAndWhiteToolStripMenuItem.Click += new System.EventHandler(this.ToBlackAndWhiteToolStripMenuItem_Click);
+            this.toGrayscaleToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.toGrayscaleToolStripMenuItem.Text = "To Grayscale";
+            this.toGrayscaleToolStripMenuItem.Click += new System.EventHandler(this.ToBlackAndWhiteToolStripMenuItem_Click);
             // 
             // ImageBox
             // 
@@ -156,28 +160,7 @@
             // 
             this.ofd.FileName = "openFileDialog1";
             // 
-            // brightnessToolStripMenuItem
-            // 
-            this.brightnessToolStripMenuItem.Name = "brightnessToolStripMenuItem";
-            this.brightnessToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.brightnessToolStripMenuItem.Text = "Brightness...";
-            // 
-            // contrastToolStripMenuItem
-            // 
-            this.contrastToolStripMenuItem.Name = "contrastToolStripMenuItem";
-            this.contrastToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.contrastToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.contrastToolStripMenuItem.Text = "Contrast...";
-            // 
-            // gammaToolStripMenuItem
-            // 
-            this.gammaToolStripMenuItem.Name = "gammaToolStripMenuItem";
-            this.gammaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.gammaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.gammaToolStripMenuItem.Text = "Gamma...";
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -185,8 +168,9 @@
             this.Controls.Add(this.ImageBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "LIDL PS";
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LIDL Photoshop";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).EndInit();
@@ -209,10 +193,8 @@
         private System.Windows.Forms.ToolStripMenuItem resizeToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog sfd;
         private System.Windows.Forms.ToolStripMenuItem effectsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toBlackAndWhiteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem brightnessToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contrastToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gammaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toGrayscaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem attributesToolStripMenuItem;
     }
 }
 
