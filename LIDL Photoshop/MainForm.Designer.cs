@@ -42,6 +42,9 @@
             this.ImageBox = new System.Windows.Forms.PictureBox();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.sfd = new System.Windows.Forms.SaveFileDialog();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +101,10 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rotateToolStripMenuItem,
             this.resizeToolStripMenuItem,
-            this.attributesToolStripMenuItem});
+            this.attributesToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.undoToolStripMenuItem,
+            this.redoToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -107,7 +113,7 @@
             // 
             this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
             this.rotateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.rotateToolStripMenuItem.Text = "Rotate...";
             this.rotateToolStripMenuItem.Click += new System.EventHandler(this.RotateToolStripMenuItem_Click);
             // 
@@ -116,7 +122,7 @@
             this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
             this.resizeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.R)));
-            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.resizeToolStripMenuItem.Text = "Resize...";
             this.resizeToolStripMenuItem.Click += new System.EventHandler(this.ResizeToolStripMenuItem_Click);
             // 
@@ -160,6 +166,25 @@
             // 
             this.ofd.FileName = "openFileDialog1";
             // 
+            // undoToolStripMenuItem
+            // 
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.undoToolStripMenuItem.Text = "Undo";
+            // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.redoToolStripMenuItem.Text = "Redo";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(210, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +220,9 @@
         private System.Windows.Forms.ToolStripMenuItem effectsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toGrayscaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem attributesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
     }
 }
 

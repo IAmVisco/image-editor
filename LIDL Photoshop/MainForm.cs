@@ -15,7 +15,10 @@ namespace LIDL_Photoshop
     public partial class MainForm : Form
     {
         private AttributesForm attrsForm;
-        Image image;
+        private Image image;
+
+        Stack<Image> Undo = new Stack<Image>(5);
+        Stack<Image> Redo = new Stack<Image>(5);
 
         public MainForm()
         {
@@ -23,15 +26,30 @@ namespace LIDL_Photoshop
             ChangeMenuOptions(false);
         }
 
+        public void UndoAdd(Image img)
+        {
+            Undo.Push(img);
+            undoToolStripMenuItem.Enabled = true;
+        }
+
+        public void RedoAdd(Image img)
+        {
+            Redo.Push(img);
+            redoToolStripMenuItem.Enabled = true;
+        }
+
         private void ChangeMenuOptions(bool value)
         {
-            this.saveToolStripMenuItem.Enabled = value;
+            saveToolStripMenuItem.Enabled = value;
 
-            this.resizeToolStripMenuItem.Enabled = value;
-            this.rotateToolStripMenuItem.Enabled = value;
-            this.attributesToolStripMenuItem.Enabled = value;
+            resizeToolStripMenuItem.Enabled = value;
+            rotateToolStripMenuItem.Enabled = value;
+            attributesToolStripMenuItem.Enabled = value;
 
-            this.toGrayscaleToolStripMenuItem.Enabled = value;
+            redoToolStripMenuItem.Enabled = value;
+            undoToolStripMenuItem.Enabled = value;
+
+            toGrayscaleToolStripMenuItem.Enabled = value;
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,6 +71,8 @@ namespace LIDL_Photoshop
                 ImageBox.Image = Image.FromStream(imgStream);
                 img.Dispose();
                 ChangeMenuOptions(true);
+                Undo.Clear();
+                Redo.Clear();
             }
         }
 
@@ -101,9 +121,11 @@ namespace LIDL_Photoshop
             RotateForm rotateForm = new RotateForm();
             if (rotateForm.ShowDialog() == DialogResult.OK)
             {
+                UndoAdd(ImageBox.Image);
                 Image image = ImageBox.Image;
                 ImageBox.Image = image.Rotate(rotateForm.Angle);
                 ResizeWindow(ImageBox.Image.Width, ImageBox.Image.Height);
+                Redo.Clear();
             }
         }
 
@@ -112,16 +134,20 @@ namespace LIDL_Photoshop
             ResizeForm resizeForm = new ResizeForm(ImageBox.Image.Width, ImageBox.Image.Height);
             if (resizeForm.ShowDialog() == DialogResult.OK)
             {
+                UndoAdd(ImageBox.Image);
                 Image image = ImageBox.Image;
                 ImageBox.Image = image.Resize(resizeForm.NewWidth, resizeForm.NewHeight);
                 ResizeWindow(resizeForm.NewWidth, resizeForm.NewHeight);
+                Redo.Clear();
             }
         }
 
         private void ToBlackAndWhiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UndoAdd(ImageBox.Image);
             Bitmap image = (Bitmap)ImageBox.Image;
             ImageBox.Image = image.ToGrayscale();
+            Redo.Clear();
         }
 
         private void AttributesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,9 +155,15 @@ namespace LIDL_Photoshop
             attrsForm = new AttributesForm(this);
             image = ImageBox.Image;
             Image backup = (Image)ImageBox.Image.Clone();
-            if (attrsForm.ShowDialog() == DialogResult.Cancel)
+            UndoAdd(ImageBox.Image);
+            DialogResult res = attrsForm.ShowDialog();
+            if (res == DialogResult.Cancel)
             {
                 ImageBox.Image = backup;
+            }
+            else if (res == DialogResult.OK)
+            {
+                Redo.Clear();
             }
         }
 
