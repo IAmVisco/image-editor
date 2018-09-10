@@ -12,9 +12,8 @@ namespace LIDL_Photoshop
 {
     public partial class AttributesForm : Form
     {
-        public float Brightness { get; set; }
-        public float Contrast { get; set; }
-        public float Gamma { get; set; }
+        public int Brightness { get; set; }
+        public int Contrast { get; set; }
 
         private MainForm parent;
 
@@ -37,7 +36,7 @@ namespace LIDL_Photoshop
         private void BirghtnessField_ValueChanged(object sender, EventArgs e)
         {
             brightnessBar.Value = (int)brightnessField.Value;
-            Brightness = (float)brightnessField.Value / 100;
+            Brightness = (int)brightnessField.Value;
             parent.ChangeAttributes();
         }
 
@@ -49,7 +48,7 @@ namespace LIDL_Photoshop
         private void ContrastField_ValueChanged(object sender, EventArgs e)
         {
             contrastBar.Value = (int)contrastField.Value;
-            Contrast = (float)contrastField.Value / 100;
+            Contrast = (int)contrastField.Value;
             parent.ChangeAttributes();
         }
 

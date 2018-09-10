@@ -55,12 +55,12 @@
             // 
             this.brightnessBar.LargeChange = 10;
             this.brightnessBar.Location = new System.Drawing.Point(87, 12);
-            this.brightnessBar.Maximum = 200;
+            this.brightnessBar.Maximum = 255;
+            this.brightnessBar.Minimum = -255;
             this.brightnessBar.Name = "brightnessBar";
             this.brightnessBar.Size = new System.Drawing.Size(104, 45);
             this.brightnessBar.TabIndex = 1;
-            this.brightnessBar.TickFrequency = 10;
-            this.brightnessBar.Value = 100;
+            this.brightnessBar.TickFrequency = 50;
             this.brightnessBar.ValueChanged += new System.EventHandler(this.BrightnessBar_ValueChanged);
             // 
             // confirmBtn
@@ -77,48 +77,48 @@
             // 
             this.brightnessField.Location = new System.Drawing.Point(197, 23);
             this.brightnessField.Maximum = new decimal(new int[] {
-            200,
+            255,
             0,
             0,
             0});
+            this.brightnessField.Minimum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            -2147483648});
             this.brightnessField.Name = "brightnessField";
             this.brightnessField.Size = new System.Drawing.Size(75, 20);
             this.brightnessField.TabIndex = 3;
-            this.brightnessField.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.brightnessField.ValueChanged += new System.EventHandler(this.BirghtnessField_ValueChanged);
             // 
             // contrastField
             // 
             this.contrastField.Location = new System.Drawing.Point(197, 72);
             this.contrastField.Maximum = new decimal(new int[] {
-            200,
+            255,
             0,
             0,
             0});
+            this.contrastField.Minimum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            -2147483648});
             this.contrastField.Name = "contrastField";
             this.contrastField.Size = new System.Drawing.Size(75, 20);
             this.contrastField.TabIndex = 6;
-            this.contrastField.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.contrastField.ValueChanged += new System.EventHandler(this.ContrastField_ValueChanged);
             // 
             // contrastBar
             // 
             this.contrastBar.LargeChange = 10;
             this.contrastBar.Location = new System.Drawing.Point(87, 61);
-            this.contrastBar.Maximum = 200;
+            this.contrastBar.Maximum = 255;
+            this.contrastBar.Minimum = -255;
             this.contrastBar.Name = "contrastBar";
             this.contrastBar.Size = new System.Drawing.Size(104, 45);
             this.contrastBar.TabIndex = 5;
-            this.contrastBar.TickFrequency = 10;
-            this.contrastBar.Value = 100;
+            this.contrastBar.TickFrequency = 50;
             this.contrastBar.ValueChanged += new System.EventHandler(this.ContrastBar_ValueChanged);
             // 
             // label2
@@ -132,6 +132,7 @@
             // 
             // cancelBtn
             // 
+            this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelBtn.Location = new System.Drawing.Point(116, 106);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);

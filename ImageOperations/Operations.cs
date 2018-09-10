@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using AForge.Imaging.Filters;
 
 namespace ImageOperations
 {
@@ -75,30 +76,11 @@ namespace ImageOperations
             return result;
         }
 
-        public static Bitmap ChangeAttributes(this Bitmap bitmap, float brightness, float contrast)
+        public static Bitmap ChangeAttributes(this Bitmap bitmap, int brightness, int contrast)
         {
-            //contrast = 1.0f;
-            float adjustedBrightness = brightness - 1.0f;
-            // create matrix that will brighten and contrast the image
-            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
-            {
-                new float[] {contrast, 0, 0, 0, 0},
-                new float[] {0, contrast, 0, 0, 0},
-                new float[] {0, 0, contrast, 0, 0},
-                new float[] {0, 0, 0, 1.0f, 0},
-                new float[] {adjustedBrightness, adjustedBrightness, adjustedBrightness, 0, 1}
-            });
-
-            ImageAttributes imageAttributes = new ImageAttributes();
-            imageAttributes.ClearColorMatrix();
-            imageAttributes.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
-            using (Graphics g = Graphics.FromImage(bitmap))
-            {
-                g.DrawImage(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                    0, 0, bitmap.Width, bitmap.Height, GraphicsUnit.Pixel, imageAttributes);
-            }
-
-            return bitmap;
+            BrightnessCorrection bfilter = new BrightnessCorrection(brightness);
+            ContrastCorrection cfilter = new ContrastCorrection(contrast);
+            return bfilter.Apply(cfilter.Apply(bitmap));
         }
     }
 }
