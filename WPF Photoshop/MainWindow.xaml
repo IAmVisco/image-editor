@@ -1,0 +1,40 @@
+﻿<Window x:Class="WPF_Photoshop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:local="clr-namespace:WPF_Photoshop"
+        mc:Ignorable="d"
+        Title="WPF Photoshop POGGERS" Height="600" Width="800" 
+        WindowStartupLocation="CenterScreen">
+    <Window.CommandBindings>
+        <CommandBinding Command="Open" Executed="OpenCommand_Executed" />
+    </Window.CommandBindings>
+    <Grid>
+        <Menu Height="50" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Open..." Command="ApplicationCommands.Open" x:Name="OpenBtn"></MenuItem>
+                <MenuItem Header="Save As..." Command="ApplicationCommands.Save" x:Name="SaveBtn"></MenuItem>
+                <Separator />
+                <MenuItem Header="Exit" Command="ApplicationCommands.Close"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Resize..." x:Name="ResizeBtn"></MenuItem>
+                <MenuItem Header="Rotate..." x:Name="RotateBtn"></MenuItem>
+                <MenuItem Header="Brightness and Contrast..." x:Name="AttrsBtn"></MenuItem>
+                <Separator />
+                <MenuItem Header="Undo" Command="ApplicationCommands.Undo" x:Name="UndoBtn"></MenuItem>
+                <MenuItem Header="Redo" Command="ApplicationCommands.Redo" x:Name="RedoBtn"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>

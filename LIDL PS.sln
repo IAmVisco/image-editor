@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LIDL Photoshop", "LIDL Phot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageOperations", "ImageOperations\ImageOperations.csproj", "{C9A2E722-F56F-4425-BE06-5D86E28C8754}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF Photoshop", "WPF Photoshop\WPF Photoshop.csproj", "{ED94981E-1B1D-482C-8D87-307E930B7694}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C9A2E722-F56F-4425-BE06-5D86E28C8754}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9A2E722-F56F-4425-BE06-5D86E28C8754}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9A2E722-F56F-4425-BE06-5D86E28C8754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED94981E-1B1D-482C-8D87-307E930B7694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED94981E-1B1D-482C-8D87-307E930B7694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED94981E-1B1D-482C-8D87-307E930B7694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED94981E-1B1D-482C-8D87-307E930B7694}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
