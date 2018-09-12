@@ -43,7 +43,7 @@ namespace LIDL_Photoshop
             this.DialogResult = DialogResult.OK;
         }
 
-        private void heightField_ValueChanged(object sender, EventArgs e)
+        private void HeightField_ValueChanged(object sender, EventArgs e)
         {
             if (isLocked && isAllowed)
             {
@@ -53,7 +53,7 @@ namespace LIDL_Photoshop
             }
         }
 
-        private void widthField_ValueChanged(object sender, EventArgs e)
+        private void WidthField_ValueChanged(object sender, EventArgs e)
         {
             if (isLocked && isAllowed)
             {

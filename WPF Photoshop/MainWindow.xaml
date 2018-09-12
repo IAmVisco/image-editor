@@ -17,6 +17,10 @@
         WindowStartupLocation="CenterScreen">
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenCommand_Executed" />
+        <CommandBinding Command="Save" Executed="SaveCommand_Executed" />
+        <CommandBinding Command="Undo" Executed="Undo_Executed" />
+        <CommandBinding Command="Redo" Executed="Redo_Executed" />
+        <CommandBinding Command="Close" Executed="Close_Executed" />
     </Window.CommandBindings>
     <Grid>
         <Menu Height="50" VerticalAlignment="Top">
@@ -27,14 +31,14 @@
                 <MenuItem Header="Exit" Command="ApplicationCommands.Close"></MenuItem>
             </MenuItem>
             <MenuItem Header="Edit">
-                <MenuItem Header="Resize..." x:Name="ResizeBtn"></MenuItem>
-                <MenuItem Header="Rotate..." x:Name="RotateBtn"></MenuItem>
-                <MenuItem Header="Brightness and Contrast..." x:Name="AttrsBtn"></MenuItem>
+                <MenuItem Header="Resize..." x:Name="ResizeBtn" Click="ResizeBtn_Click"></MenuItem>
+                <MenuItem Header="Rotate..." x:Name="RotateBtn" Click="RotateBtn_Click"></MenuItem>
+                <MenuItem Header="Brightness and Contrast..." x:Name="AttrsBtn" Click="AttrsBtn_Click"></MenuItem>
                 <Separator />
                 <MenuItem Header="Undo" Command="ApplicationCommands.Undo" x:Name="UndoBtn"></MenuItem>
                 <MenuItem Header="Redo" Command="ApplicationCommands.Redo" x:Name="RedoBtn"></MenuItem>
             </MenuItem>
         </Menu>
-
+        <Image x:Name="ImageBox" Margin="0, 50, 0, 0" Stretch="None"/>
     </Grid>
 </Window>

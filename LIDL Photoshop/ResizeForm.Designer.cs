@@ -77,7 +77,7 @@
             this.heightField.Name = "heightField";
             this.heightField.Size = new System.Drawing.Size(89, 20);
             this.heightField.TabIndex = 0;
-            this.heightField.ValueChanged += new System.EventHandler(this.heightField_ValueChanged);
+            this.heightField.ValueChanged += new System.EventHandler(this.HeightField_ValueChanged);
             // 
             // widthField
             // 
@@ -90,7 +90,7 @@
             this.widthField.Name = "widthField";
             this.widthField.Size = new System.Drawing.Size(89, 20);
             this.widthField.TabIndex = 1;
-            this.widthField.ValueChanged += new System.EventHandler(this.widthField_ValueChanged);
+            this.widthField.ValueChanged += new System.EventHandler(this.WidthField_ValueChanged);
             // 
             // proportionLock
             // 
