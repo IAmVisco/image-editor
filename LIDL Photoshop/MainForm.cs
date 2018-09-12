@@ -17,8 +17,8 @@ namespace LIDL_Photoshop
         private AttributesForm attrsForm;
         private Image image;
 
-        Stack<Image> Undo = new Stack<Image>(5);
-        Stack<Image> Redo = new Stack<Image>(5);
+        Stack<Image> Undo = new Stack<Image>(15);
+        Stack<Image> Redo = new Stack<Image>(15);
 
         public MainForm()
         {
@@ -170,6 +170,40 @@ namespace LIDL_Photoshop
         public void ChangeAttributes()
         {
             ImageBox.Image = (image as Bitmap).ChangeAttributes(attrsForm.Brightness, attrsForm.Contrast);
+        }
+
+        private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Undo.Count != 0)
+            {
+                RedoAdd(ImageBox.Image);
+                ImageBox.Image = Undo.Pop();
+                if (Undo.Count == 0)
+                {
+                    undoToolStripMenuItem.Enabled = false;
+                }
+                else
+                {
+                    undoToolStripMenuItem.Enabled = true;
+                }
+            }
+        }
+
+        private void RedoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Redo.Count != 0)
+            {
+                UndoAdd(ImageBox.Image);
+                ImageBox.Image = Redo.Pop();
+                if (Redo.Count == 0)
+                {
+                    redoToolStripMenuItem.Enabled = false;
+                }
+                else
+                {
+                    redoToolStripMenuItem.Enabled = true;
+                }
+            }
         }
     }
 }
