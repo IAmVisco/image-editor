@@ -80,7 +80,8 @@ namespace ImageOperations
         {
             BrightnessCorrection bfilter = new BrightnessCorrection(brightness);
             ContrastCorrection cfilter = new ContrastCorrection(contrast);
-            return bfilter.Apply(cfilter.Apply(bitmap));
+            
+            return bfilter.Apply(cfilter.Apply(bitmap.Clone(new Rectangle(0, 0, bitmap.Width, bitmap.Height), PixelFormat.Format24bppRgb)));
         }
     }
 }

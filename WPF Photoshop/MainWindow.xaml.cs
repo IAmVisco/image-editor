@@ -27,7 +27,7 @@ namespace WPF_Photoshop
         Stack<ImageSource> Undo = new Stack<ImageSource>(5);
         Stack<ImageSource> Redo = new Stack<ImageSource>(5);
         AttributesWindow attrWindow;
-        Bitmap image;
+        Bitmap image, backup;
 
         public MainWindow()
         {
@@ -216,14 +216,27 @@ namespace WPF_Photoshop
         private void AttrsBtn_Click(object sender, RoutedEventArgs e)
         {
             attrWindow = new AttributesWindow(this);
+            image = ConvertToBitmap(ImageBox.Source as BitmapSource);
+            backup = (Bitmap)ConvertToBitmap(ImageBox.Source as BitmapSource).Clone();
             if (attrWindow.ShowDialog() == true)
             {
                 UndoAdd(ImageBox.Source);
-                image = ConvertToBitmap(ImageBox.Source as BitmapSource);
                 ImageBox.Source = BitmapToImageSource(image.ChangeAttributes(attrWindow.Brightness, attrWindow.Contrast));
                 ResizeWindow();
                 Redo.Clear();
             }
+            else
+            {
+                ImageBox.Source = BitmapToImageSource(backup);
+            }
+        }
+
+        private void ToGrayscale(object sender, RoutedEventArgs e)
+        {
+            UndoAdd(ImageBox.Source);
+            Bitmap image = ConvertToBitmap(ImageBox.Source as BitmapSource);
+            ImageBox.Source = BitmapToImageSource(image.ToGrayscale());
+            Redo.Clear();
         }
 
         public void ChangeAttributes()

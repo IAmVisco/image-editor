@@ -38,6 +38,9 @@
                 <MenuItem Header="Undo" Command="ApplicationCommands.Undo" x:Name="UndoBtn"></MenuItem>
                 <MenuItem Header="Redo" Command="ApplicationCommands.Redo" x:Name="RedoBtn"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Effects">
+                <MenuItem Header="To Grayscale" x:Name="GrayBtn" Click="ToGrayscale"></MenuItem>
+            </MenuItem>
         </Menu>
         <Image x:Name="ImageBox" Margin="0, 50, 0, 0" Stretch="None"/>
     </Grid>
