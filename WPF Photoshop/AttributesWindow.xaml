@@ -1,0 +1,26 @@
+﻿<Window x:Class="WPF_Photoshop.AttributesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/b lend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Photoshop"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="Image Attributes" Height="180" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Label Content="Brightness" HorizontalAlignment="Left" VerticalAlignment="top" Margin="20, 10, 0, 0" />
+        <Label Content="Contrast" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20, 0, 0, 15" />
+        <TextBox Width="70" Height="30" x:Name="BrightnessField" Margin="0, 0, 25, 100" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextChanged="BrightnessChanged"/>
+        <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20, 0, 0, 50" Maximum="100" Minimum="-100" x:Name="BrightnessSlider" Width="150" ValueChanged="BrightnessSlider_ValueChanged"/>
+        <TextBox Width="70" Height="30" x:Name="ContrastField" Margin="0, 0, 25, 60" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextChanged="ContrastChanged"/>
+        <Slider VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20, 30, 0, 0" Maximum="100" Minimum="-100" x:Name="ContrastSlider" Width="150" ValueChanged="ContrastSlider_ValueChanged"/>
+        <Button Content="Submit" Margin="0, 0, 20, 20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button_Click" IsDefault="True" />
+    </Grid> 
+</Window>

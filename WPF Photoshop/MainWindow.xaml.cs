@@ -26,6 +26,8 @@ namespace WPF_Photoshop
     {
         Stack<ImageSource> Undo = new Stack<ImageSource>(5);
         Stack<ImageSource> Redo = new Stack<ImageSource>(5);
+        AttributesWindow attrWindow;
+        Bitmap image;
 
         public MainWindow()
         {
@@ -200,12 +202,33 @@ namespace WPF_Photoshop
 
         private void RotateBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            RotateWindow rotateWindow = new RotateWindow();
+            if (rotateWindow.ShowDialog() == true)
+            {
+                UndoAdd(ImageBox.Source);
+                Bitmap image = ConvertToBitmap(ImageBox.Source as BitmapSource);
+                ImageBox.Source = BitmapToImageSource(image.Rotate(rotateWindow.Angle));
+                ResizeWindow();
+                Redo.Clear();
+            }
         }
 
         private void AttrsBtn_Click(object sender, RoutedEventArgs e)
         {
+            attrWindow = new AttributesWindow(this);
+            if (attrWindow.ShowDialog() == true)
+            {
+                UndoAdd(ImageBox.Source);
+                image = ConvertToBitmap(ImageBox.Source as BitmapSource);
+                ImageBox.Source = BitmapToImageSource(image.ChangeAttributes(attrWindow.Brightness, attrWindow.Contrast));
+                ResizeWindow();
+                Redo.Clear();
+            }
+        }
 
+        public void ChangeAttributes()
+        {
+            ImageBox.Source = BitmapToImageSource(image.ChangeAttributes(attrWindow.Brightness, attrWindow.Contrast));
         }
     }
 }

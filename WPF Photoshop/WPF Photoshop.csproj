@@ -61,9 +61,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttributesWindow.xaml.cs">
+      <DependentUpon>AttributesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ResizeWindow.xaml.cs">
       <DependentUpon>ResizeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RotateWindow.xaml.cs">
+      <DependentUpon>RotateWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AttributesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +87,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResizeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RotateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
